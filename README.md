@@ -1,14 +1,14 @@
-#CI - Interrupcións
+# CI - Interrupcións
 
 <br data-effect="slide"/>
 
 Una interrupció és un mecanisme proveït per un microprocessador o un sistema per a sincronitzar operacións d'E/S, manejar condicións d'errors i events d'emergència, coordinar l'ús de recursos compartits...
 
-##CONCEPTES BÀSICS.
+## CONCEPTES BÀSICS.
 
 <br/>
 
-##Què es una interrupció?
+## Què es una interrupció?
 ---
 Una interrupció es un event que requereix que la CPU abandoni l'execució normal del programa i executi un servei relacionat amb l'event. Una interrupció pot ser generada internament (dins el xip) o externament (fora del xip). Una **interrupció externa** és generada quan els cirucits externs provoquen una senyal d'interrupció a la CPU. Una **interrupció interna** pot ser generada per el propi circuit del hardware del xip o per errors de software. En alguns microcontroladors, temporitzadors, funcions d'E/S i la CPU estàn incorporades en el mateix xip, i aquests subsistemes poden generar interrucions a la CPU. També poden ser causades per accións abnormals de l'execució del programa: _codis d'operació il·legals, overflows, divisións per zero..._  són les anomenades **interrupcións de software**. Els termes _traps_ o _excepcións_ també són utilitzats per a referir-se a les interrupcións de software.  
 
@@ -38,20 +38,20 @@ Amb aquest exemple podem explicar algunes coses molt similars a com un microproc
 
 5. Quan acabes la conversa per telèfon, penjes, obres el llibre per la pàgina on havies deixat el punt i continues amb la lectura. Similarment, després de fer les accións necessàries i apropiades per l'interrupció, el micro tornarà a la següent instrucció on ha tingut lloc l'interrupció. Això és gràcies a que l'adreça on s'havia de continuar havia estat guardada a la memòria (stack).
 
-##Emmascarament d'interrupcións
+## Emmascarament d'interrupcións
 ----
 Depenent de la situació i l'aplicació, algunes interrupcións podrien ser no desitjades o necessàries i s'haurien de prevenir d'interrompre la CPU. La majoria dels microprocessadors i microcontroladors tenen l'opció d'ignorar aquestes interrupcións. Aquests tipus d'interrupcións s'anomenen **interrupcións emmascarables**. Hi ha alguns tipus d'interrupcións que no poden ser ignorats per la CPU i per les quals s'han de pendre mesures immediatament (**interrupcións no emmascarables**).  Un programa pot demanar a la CPU ignorar o fer cas a les interrupcións emmascarables a través de posar a 1 o 0 el  "_enable bit_". Una interrupció es marca com a **pendent** quan està activa però encara no ha estat tractada per la CPU. Una _interrupció pendent_ pot ser o no ser tractada per la CPU, depenen de l'_enable bit_ de l'interrupció.
 
 <br/>
 
-##Prioritat d'interrupcións
+## Prioritat d'interrupcións
 ----
 
 Pot ser que en un moment donat, la CPU rebi més d'una interrupcións pendents a la vegada. La CPU ha de **decidir quina interrupció ha de tractar primer**. La solució és prioritzar totes les fonts d'interrupcións. Una interrupció amb prioritat més alta sempre rebrà tractament que les de prioritat més baixa.
 
 <br/>
 
-##Vector d'interrupcións
+## Vector d'interrupcións
 ----
 Per a proveïr servei a una interrupció, el processador ha de saber l'adreça d'inici de la rutina de tractament. Aquesta adreça s'anomena **vector d'interrupcións**.
 
@@ -59,14 +59,14 @@ El pic18, només té dos vectors d'interrupció per a tractar totes les interrup
 
 <br/>
 
-##INTERRUPCIÓNS EN EL PIC18
+## INTERRUPCIÓNS EN EL PIC18
 El PIC18 té les següents fonts d'interrupcións:  
 
  * INT pin (INT0 ... INT3)
  * Canvis de pins del PortB (qualsevol dels quatre ports superiors de PORTB)
  * Perifèrics del xip
 
-###Registres relacionats amb interrupcións
+### Registres relacionats amb interrupcións
 ----
 Hi ha fins a 13 registres per a controlar les operacións d'interrupció. Aquests són:  
 
@@ -82,12 +82,12 @@ Cada font d'interrupcións te tres bits per a controlar les seves operacións, a
  * _Enable bit_: habilita o deshabilita una interrupció.
  * _Priority bit_: Selecciona si és alta o baixa prioritat. Només funciona quan l'esquema de prioritats està activat.
 
-###**Registre RCON**
+### **Registre RCON**
 Aquest registre té un bit (IPEN) per a activar l'esquema de prioritats. Els altres bits s'utilitzen per a indicar _causes de reset_. 
 
 <br/>
 
-###**Registres INTCON - Interrupt Control Registers**
+### **Registres INTCON - Interrupt Control Registers**
 Aquests registres conenen bits d'_enable, priority i flag_ per pins INT externs, pins PORTB canviats i interrupcións de Timer 0 (TMR0) per overflow.
 
 El pin INT0 no té un _priority bit_ per a seleccionar la seva prioritat. De fet, aquest pin sempre està en **alta** prioritat, ja que apareix en els dos circuits d'alta i baixa prioritat.
@@ -119,17 +119,17 @@ Si IPEN (Bit 7 del RCON) = 1
 
 <br/>
 
-###**Registres PIR1 . . . PIR3**
+### **Registres PIR1 . . . PIR3**
 Aquests registres contenen els bits de _flag_ individuals per a les interrupcións perifèriques. Aquests _flag bits_ permeten a la rutina de tractament identificar la causa de l'interrupció. Segons el model de PIC18, els bits poden varirar.  
 
 <br/>
 
-###**Registres PIE1 . . . PIE3**
+### **Registres PIE1 . . . PIE3**
 Contenen bits _enable_ individuals per a les interrupcións perifèriques. `quan el bit IPEN (Bit 7 del RCON) és 1, el bit PEIE ha de ser posat a 1 per a permetre qualsevol d'aquestes interrupcións perifèriques`.  
 
 <br/>
 
-###**Registres IPR1 . . . IPR3 - _Interrupt Priority Registers_**
+### **Registres IPR1 . . . IPR3 - _Interrupt Priority Registers_**
 Contenen els bits de prioritat individuals per a les interrupcións perifèriques. Aquests registres només etenn efecte quan el esquema de prioritats d'interrupcións està activat (IPEN = 1). Activant la prioritat d'interrupcións i posant el bit de prioritat associat, l'usuari pot posar qualsevol interrupció perifèrica a alta o baixa prioritat.
 
 ---
