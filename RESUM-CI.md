@@ -82,7 +82,24 @@ Per tal de diferenciar els continguts d’un registre amb l’adreça d’un reg
  _**SEPARACIÓ DE LA MEMÒIRA DE DADES I LA MEMÒRIA DE PROGRAMES**_  
  
  El PIC18, assigna diferents espais de memòria a les dades i als programes i destina busos separats entre ells per què puguin accedir a la vegada.
-El PIC18 té un PC de 21 bits dividit en tres registres: PCU, PCH i PCL. Entre ells, el PCL és accessible directament per l’usuari. El PCH i el PCL tenen 8 bits mentre que el PCU té 5 bits.
+El PIC18 té un PC de 21 bits dividit en tres registres: PCU, PCH i PCL. Entre ells, el PCL és accessible directament per l’usuari. El PCH i el PCL tenen 8 bits mentre que el PCU té 5 bits.  
+
+_**MEMÒRIA DE DADES**_  
+La memòria de dades del PIC18 està implementada com a SRAM, cada ubicació de memòria de dades és referida com a registre o registre de fitxers. El PIC18 suporta 4096 bytes de dades en memòria. Es requereixen 12 bits d’adreça per a seleccionar un dels registres.  
+
+A causa de la mida limitada de les instruccions del PIC18 (16 bits la majoria), només 8 bits de l’instrucció queden lliures per a especificar el registre que operar. Com a resultat, els dissenyadors van dividir els 4096 bytes de la memòria de dades del PIC18 en 16 bancs (Banks). Només un sol banc de 256 registres pot estar actiu a l’hora. Quatre bits addicionals es posen en un registre especial anomenat BSR (Bank Select Register) per a seleccionar el banc actiu; l’usuari ha de canviar els continguts del BSR per a canviar el banc actiu.  
+
+Hi ha dos tipus de registres: Registres de propòsit general (GPRs) i registres de funcions especials (SFRs). Els GPRs s’utilitzen per a guardar dades dinàmiques quan la CPU del PIC18 està executant un programa; els SFRs, són utilitzats per la CPU i els perifèrics per a controlar les ordres del MCU; els registres estan implementats com a SRAM.  
+
+Els SFRs estan assignats de la més alta adreça cap avall, mentre que els GPRs comencen del l’adreça 0 cap a dalt.  
+
+[memòria de dades eeprom ----------- 1.5.3 Han-Way Huang // per llògica es pot deduïr -> Electrically eraseable programable rom]  
+
+_**ORGANITZACIÓ DE MEMÒIRA DE PROGRAMA**_
+El PIC18, com ja hem dit, té un PC de 21 bits i en conseqüència és capaç de adreçar els 2MB d’espai de memòria de programa. Si accedim una ubicació inexistent de memòria, llegirem tot 0s.  
+
+La MCU del PIC18 té 31 entrades d’adreces de retorn (un stack) per a guardar adreces de retorn de crides a subrutines i interrupcions de processos. Aquesta pila no és part de l’espai de la memòria de programa.
+
 
 
 
