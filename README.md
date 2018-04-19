@@ -4,7 +4,7 @@
 
 Una interrupció és un mecanisme proveït per un microprocessador o un sistema per a sincronitzar operacións d'E/S, manejar condicións d'errors i events d'emergència, coordinar l'ús de recursos compartits...
 
-## 1.CONCEPTES BÀSICS.
+## 1 - CONCEPTES BÀSICS.
 
 <br/>
 
