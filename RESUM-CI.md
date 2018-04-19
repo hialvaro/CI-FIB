@@ -134,4 +134,6 @@ Contenen els bits de prioritat individuals per a les interrupcións perifèrique
 
 ---
 ##CONTINUARÀ...##
+### Author: Alvaro Moreno
+### Font: PIC Microcontroller - Han-Way Huang
 ---
