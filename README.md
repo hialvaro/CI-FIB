@@ -1,10 +1,10 @@
-# CI - Interrupcións
+# 6. Interrupcións
 
 <br data-effect="slide"/>
 
 Una interrupció és un mecanisme proveït per un microprocessador o un sistema per a sincronitzar operacións d'E/S, manejar condicións d'errors i events d'emergència, coordinar l'ús de recursos compartits...
 
-## CONCEPTES BÀSICS.
+## 1.CONCEPTES BÀSICS.
 
 <br/>
 
@@ -59,7 +59,7 @@ El pic18, només té dos vectors d'interrupció per a tractar totes les interrup
 
 <br/>
 
-## INTERRUPCIÓNS EN EL PIC18
+## 2.INTERRUPCIÓNS EN EL PIC18
 El PIC18 té les següents fonts d'interrupcións:  
 
  * INT pin (INT0 ... INT3)
