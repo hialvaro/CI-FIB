@@ -1,3 +1,93 @@
+# Resum per al primer parcial
+## Què és un computador?
+---
+Un computador consta de hardware i software; El hardware es basa en quatre tipus de components:
+ - Processador: Responsable de realitzar totes les operacions computacionals i la coordinació de l’ús dels recursos de l’ordinador. Un sistema computacional pot constar d’un o més processadors. Un processador pot realitzar tasques de propòsit general o de propòsit específic, com renderització gràfica, impressió...
+  - Dispositius d’entrada: Un computador està dissenyat per a executar programes que manipules certes dades. Els dispositius d’entrada són necessaris per a entrar al programa i entrar-hi les dades per a ser processades. Teclats, ratolins, scanners, sensors...
+   - Dispositius de sortida: Els resultats finals han de ser mostrats en una pantalla o impresos en paper per tal que l’usuari els pugui veure (LEDs, etc). Aquests són els dispositius de sortida.
+    - Dispositius de memòria: Perquè els programes puguin ser executats i les dades puguin ser processades s’han de guardar en memòria perquè el processador pugui accedir-hi.
+
+## El processador
+---
+El processador, també anomenat CPU està constituït al menys d’aquests tres components:
+ - Registres: Un registre és un lloc d’emmagatzematge dins la CPU. S’utilitza per a contenir dades o adreces de memòria durant l’execució d’una instrucció. Com que els registres estan molt aprop de la CPU, permet un accés molt ràpid durant l’execució del programa. El nombre de registres varia molt entre processadors.
+  - ALU (Arithmetic Logic Unit): La ALU realitza totes les computacions numèriques i lògiques. La ALU rep dades de la memòria, fa les operacions i si és necessari reescriu les dades a la memòria de nou.
+   - Unitat de Control: La unitat de control conté la lògica de les instruccions del hardware. L’unitat de control descodifica i monitoritza les execucions de les instruccions. També actua com un àrbitre ja que varies porcions del computador necessiten els recursos de la CPU. Les activitats de la CPU estan sincronitzades amb el rellotge del sistema.
+La unitat de control també conté un registre anomenat program counter (PC) que manté un seguiment de les adreces de les següents instruccions a ser executades.
+
+## El microprocessador
+---
+Un microprocessador és un processador integrat en un sol circuit. Un microcomputador és un computador que utilitza un microprocessador com a CPU. La velocitat de rellotge ha anat millorant de manera increïble amb els anys, però la velocitat d’accés a memòria ha millorat molt poc; això provoca que el processador pot fer operacions aritmètiques en un cicle de rellotge però necessita forces cicles per accedir a les dades de memòria. Aquesta diferència fa que la rapidesa del rellotge sigui inútil per a millorar el rendiment.
+
+La solució al problema, és afegir una petita memòria d’alta velocitat a la CPU; l’anomenada Memòria Cache. La CPU pot accedir a dades de la seva pròpia cache amb tan sols un o dos cicles perquè està molt aprop de la ALU.
+
+## Els microcontroladors
+---
+Un microcontrolador (MCU) es un computador implementat en un sol circuit de gran escala integrat. Amés d’aquests components que estàn compresos en un microprocessador, un MCU també conté alguns dels següents elements:
+ - Memòria
+ - Temporitzadors, comptadors d’events, capturadors d’entrades, de sortides, comparadors de sortides, etc...
+ - PWM
+ - Conversos Analògic-Digital
+ - Conversos Digital-Analògic
+ - Controlador de memòria d’accés directe
+
+### LA MEMÒRIA
+Els programes i les dades estan emmagatzemats en memòria. Es classifica en dos tipus Random Access Memory (RAM) i Read-Only Memory (ROM).
+
+_**RANDOM-ACESS MEMORY**_ (RAM)  
+La memòria RAM, és **volàtil**; és a dir, no pot retenir les dades amb l’absència d’energia (electricitat). A la RAM també se l’anomena Memòria de Lectura/Escriptura, perquè **permet que el processador llegeixi i escrigui en la memòria**. Tant l’escriptura com la lectura suposen la mateixa quantitat de temps.
+Sempre que el dispositiu tingui energia, el microprocessador pot escriure en una localització de la RAM i llegir de nou els mateixos continguts quan sigui necessari. Llegir la memòria és un procés no-destructiu; en canvi, quan el micro escriu dades a memòria, les dades antigues són substituïdes, i per tant destruïdes.
+
+Existeixen dos tipus de RAM: **Static RAM** (SRAM) i **Dynamic RAM** (DRAM). La **SRAM** utilitza de quatre a sis transistors  per a guardar un bit d’informació; sempre que el dispositiu tingui energia, la informació de la SRAM no es veurà afectada (borrada). La **RAM dinàmica (DRAM)**, utilitza un transistor i un capacitor per a guardar un bit d’informació. La informació guardada en el capacitor (en forma de càrrega elèctrica) es perdrà amb el temps, així que és necessari una operació d’actualització per a mantenir els continguts d’aquesta.
+La RAM, s’utilitza principalment per a guardar programes dinàmics i dades; un ordinador sovint vol córrer diferents programes a la vegada, i aquests programes normalment utilitzen diferents sets de dades. Els programes i les dades, doncs, han de carregar-se des de un disc dur o memòries secundaries cap a la RAM, és per això que se’ls hi diu dinàmiques.
+
+_**READ-ONLY MEMORY**_ (ROM)  
+La memòria ROM no és volàtil, si es treu l’energia de la ROM i després es torna a aplicar les dades originals encara seran allà.  Com implica el seu nom, la ROM només pot ser llegida; tot i que això no es del tot cert.
+La majoria de ROM requereixen algoritmes especials i voltatge per a escriure dades al xip. Sense l’algoritme i el voltatge específics qualsevol intent de escriure-hi no tindrà èxit. Avui en dia hi ha molts diferents tipus de ROM:
+ - Masked-programmed read-only memory:
+   - Programada durant la fabricació.
+ - Programable read-only memory
+   - Rom que pot ser programada per a l’usuari final utilitzant un PROM (Programador de ROM)
+   - Un cop programada no pot ser canviada.
+ - Erasable programable read-only memory
+   - Pot ser borrada amb llum ultraviolat
+   - Després pot ser reescrita
+ - Electrically erasable programable read-only memory
+   - Pot ser borrada i reprogramada amb electricitat.
+ - Flash Memory
+   - Va ser creada per a incorporar els vantatges i treure les desavantatges de EPROM i EEPROM. La memòria flash pot ser borrada i reprogramada en el sistema sense un programa dedicat o un programador.
+
+## El software del Computador
+Els programes es coneixen com a software. Un programa es una sèrie d’instruccions que el computador pot executar, es guarda a la memòria del computador en forma de nombres binaris: Instruccions Màquina.
+La llargada de una instrucció màquina d’un computador pot ser fixe o variable; si fixem la mida de les instruccions, fa que descodificar-les sigui molt més simple i per tant podem simplificar el disseny del processador; però té un gran desavantatge, la llargària del programa pot ser molt més llarga a causa de la ineficiència de la codificació de les instruccions. La gran majoria d’instruccions són de 16 bits, però n’hi ha quatre que són de 32 bits.  
+
+_**LLENGUATGE ASSEMBLADOR**_  
+Desenvolupar programes en llenguatge màquina (binari) és molt difícil; El llenguatge assemblador es va inventar per a simplificar la feina de programar. Els mnemònics són representacions en no-alt nivell del llenguatge màquina, per exemple en el PIC18:  
+
+**Decf fp_cnt, F, A** significa “decrementa la variable lp_cnt localitzada al access bank 1 unitat”.  
+
+Llenguatges com C, C++ o Java són llenguatges d’alt nivell, ja que s’acosten al anglès parlat i sovint una sola línia representa moltes instruccions en assemblador.
+
+## Vista general del PIC18  
+_**ORGANITZACIÓ DE MEMÒRIA**_  
+La memòria consisteix en una seqüència de ubicacions directament adreçables. Una ubicació de memòria es referida com una unitat d’informació; en el PIC18, una ubicació de memòria conté 8 bits d’informació, és a dir, 1 Byte; la meitat (4bits) són 1 nibble. Una ubicació de memòria pot ser utilitzada per a guardar dades, instruccions, estats dels perifèrics, etc. Una unitat d’informació té dos components: La seva _adreça_ i el seu _contingut_.  
+
+ADREÇA -> -> CONTINGUTS  
+
+Cada ubicació de memòria, té una adreça que ha de ser proporcionada abans de que els seus continguts puguin ser accedits. La CPU es comunica amb la memòria primer identificant l’adreça i llavors passant-la per el bus d’adreçes; similar al fet que un carter necessita l’adreça per a donar la carta.  
+Per tal de diferenciar els continguts d’un registre amb l’adreça d’un registre o una ubicació de memòria, utilitzarem les següents notacions:  
+ - **[adreça de registre]**: Es refereix als continguts d’un registre; [WREG] es refereix als continguts del registre WREG; [0x20] es refereix als continguts del registre de propòsit general a l’adreça 0x20.
+ - **Adreça**: Es refereix al registre o ubicació de memòria; 0x10 es refereix al registre de funció especial 0x10.  
+ 
+ _**SEPARACIÓ DE LA MEMÒIRA DE DADES I LA MEMÒRIA DE PROGRAMES**_  
+ 
+ El PIC18, assigna diferents espais de memòria a les dades i als programes i destina busos separats entre ells per què puguin accedir a la vegada.
+El PIC18 té un PC de 21 bits dividit en tres registres: PCU, PCH i PCL. Entre ells, el PCL és accessible directament per l’usuari. El PCH i el PCL tenen 8 bits mentre que el PCU té 5 bits.
+
+
+
+
+
 # 6. Interrupcións
 
 <br data-effect="slide"/>
