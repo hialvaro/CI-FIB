@@ -95,7 +95,8 @@ Els SFRs estan assignats de la més alta adreça cap avall, mentre que els GPRs 
 
 [memòria de dades eeprom ----------- 1.5.3 Han-Way Huang // per llògica es pot deduïr -> Electrically eraseable programable rom]  
 
-_**ORGANITZACIÓ DE MEMÒIRA DE PROGRAMA**_
+_**ORGANITZACIÓ DE MEMÒIRA DE PROGRAMA**_  
+
 El PIC18, com ja hem dit, té un PC de 21 bits i en conseqüència és capaç de adreçar els 2MB d’espai de memòria de programa. Si accedim una ubicació inexistent de memòria, llegirem tot 0s.  
 
 La MCU del PIC18 té 31 entrades d’adreces de retorn (un stack) per a guardar adreces de retorn de crides a subrutines i interrupcions de processos. Aquesta pila no és part de l’espai de la memòria de programa.
